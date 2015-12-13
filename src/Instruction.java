@@ -51,9 +51,9 @@ public class Instruction {
     } catch (Exception e) {
     }
 
-    String rFormat = "%s %s %s %s %s %s";
-    String iFormat = "%s %s %s %s";
-    String jFormat = "%s $s";
+    String rFormat = "%s_%s_%s_%s_%s_%s";
+    String iFormat = "%s_%s_%s_%s";
+    String jFormat = "%s_%s";
 
     String function = parts.get(0);
     if (function.equals("add")) {
