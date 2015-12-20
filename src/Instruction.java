@@ -97,15 +97,13 @@ public class Instruction {
       binaryCode = String.format(iFormat, "000100", rs, rd, constant);
 
     } else if (function.equals("jal")) {
-      constant = Assembler.pad(Assembler.getLabelCode(parts.get(3), lineNumber),
-          26);
+      constant = Assembler.stringToBinary(parts.get(1), 26);
       binaryCode = String.format(jFormat, "000011", constant);
 
     } else if (function.equals("jr")) {
-      constant = Assembler.pad(Assembler.getLabelCode(
-          Integer.toBinaryString(Integer.valueOf(parts.get(3))), lineNumber),
-          26);
-      binaryCode = String.format(jFormat, "001000", constant);
+      rs = new Register(parts.get(1)).binaryCode;
+      binaryCode = String.format(rFormat, default_opcode, rs, "00000", "00000",
+          default_shamt, "001000");
 
     } else if (function.equals("slt")) {
       binaryCode = String.format(rFormat, default_opcode, rs, rt, rd,
