@@ -25,7 +25,7 @@ public class Main {
     }
 
     if (outputFile == null) {
-      outputFile = new File(sourceFile + ".memory");
+      outputFile = new File("instruction-memory.mem");
     }
 
     try {
